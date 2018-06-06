@@ -1,0 +1,13 @@
+{% extends "basic_app/basic_app_base.html" %}
+
+{% block body_block %}
+
+<h1>Делетение {{ school.name }} ?</h1>
+
+<form method="POST">
+  {% csrf_token %}
+  <input type="submit" class="btn btn-warning" value='Делетение'>
+  <a href="{% url 'basic_app:detail' pk=school.pk%}">Кансер</a>
+</form>
+
+{% endblock %}

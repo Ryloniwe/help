@@ -1,0 +1,24 @@
+{% extends "basic_app/basic_app_base.html" %}
+
+{% block body_block %}
+
+<div class="jumbotron">
+  <h1>Паге оф скхола информатион</h1>
+  <h2>Информатион:</h2>
+  <p>Скхола ноим: {{ school_detail.name }}</p>
+  <p>Дегенеректор: {{ school_detail.principal }}</p>
+  <p>Лакатион: {{ school_detail.location }}</p>
+  <h3>Ступидс:</h3>
+  {% for student in school_detail.students.all %}
+    <p>{{ student.name }}, ono imeet {{ student.age }} godov</p>
+  {% endfor %}
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <ul class="nav navbar-nav">
+    <li><a class='btn btn-warning' href="{% url 'basic_app:update' pk=school_detail.pk %}">Упдате</a></li>
+    <li><a class='btn btn-danger' href="{% url 'basic_app:delete' pk=school_detail.pk %}">Делетение</a></li>
+    <li><a href="#"></a></li>
+</nav>
+
+{% endblock %}
